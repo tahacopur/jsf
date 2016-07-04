@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:p="http://primefaces.org/ui"  >
+
+  <h:head>
+
+
+  
+<script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    }
+</script>
+  
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ 
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});	$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+	</script>
+					
+  
+  </h:head>
+  
+       <h:body>
+       
+       
+       <div class="container-fluid">
+    
+    <!-- Second navbar for sign in -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Brand</a>
+        </div>
+    
+      
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+              <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+            </li>
+          </ul>
+          <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" ></span></button>
+            </form>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+    
+
+
+       </div>
+       
+       
+  
+  <h:form>            
+    <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+          <p:graphicImage value="images/tamamla.PNG" />
+    </h:outputLink>
+ 
+    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+ 
+    <p:dialog header="Login" widgetVar="dlg" resizable="false">
+          <!-- registration -->
+	<div class="main-1">
+		<div class="container">
+			<div class="register">
+		  	 
+				 <div class="register-top-grid">
+					<h3>Lütfen Bilgilerinizi Giriniz</h3>
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>İsim<label>*</label></span>
+						
+					<h:inputText value="#{siparisEkle.m.m_adi}"/>
+						
+						 
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						<span>Soyisim<label>*</label></span>
+						<h:inputText value="#{siparisEkle.m.m_soyadi}"/>
+					 </div>
+					
+					 
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>Telefon<label>*</label></span>
+							<h:inputText value="#{siparisEkle.m.m_tel}"/>
+					 </div>
+					 
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>Adres<label>*</label></span>
+							<h:inputText value="#{siparisEkle.m.m_adres}"/>
+					 </div>
+					 
+					<div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>E mail<label>*</label></span>
+						
+					<h:inputText value="#{siparisEkle.m.m_email}"/>
+					
+					 </div>
+					 </div>
+
+				
+				<div class="clearfix"> </div>
+				<div class="register-but">
+				  
+					
+		  <h:commandButton value="Siparişi Tamamla" action="#{siparisEkle.veriTabaninaGonder}" class="btn btn-warning"/>
+					   
+					   <div class="clearfix"> </div>
+				
+				</div>
+			
+		   </div>
+		 </div>
+	</div>
+    </p:dialog>
+</h:form>
+ 
+      
+</h:body>
+</html>

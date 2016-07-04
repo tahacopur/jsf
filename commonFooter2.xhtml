@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+   xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+
+
+<h:outputStylesheet library="css" name="style.css" />
+<h:outputStylesheet library="css" name="flexslider.css" /> 
+<h:outputStylesheet library="css" name="bootstrap.css" />
+<h:outputStylesheet library="css" name="chocolat.css" />
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/move-top.js"></script>
+  <script src="js/easing.js"></script>
+  <script src="js/simpleCart.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/jquery.chocolat.js"></script>
+  <script src="js/jquery.flexslider.js"></script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Yermisin</title>
+
+
+
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ 
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});	$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+	</script>
+							  
+			</h:head>			
+<h:body>
+
+<div class="specials-section">
+			<div class="container">
+				<div class="col-md-3 specials">
+				<h3>Biz Kimiz?</h3>
+				<p>Biz insanlara farklı lezzetler tatmayı amaçlayan bir kurumuz ve bunu en kolay yoldan size ulaştırmayı amaçlıyoruz..</p>
+				</div>
+				<div class="col-md-3 specials1">
+				<h3>En Çok Satılanlar</h3>
+				<ul>
+					<li><a href="menu_tavuk.xhtml">Tavuk Menülerimiz</a></li>
+					<li><a href="menu_et.xhtml">Et Menülerimiz</a></li>
+					<li><a href="menu_salata.xhtml">Salatalarımız</a></li>
+				
+				</ul>
+				</div>
+			<div class="col-md-3 specials1">
+			<h3>İletişime Geçin</h3>
+			<ul>
+				<li><a href="contact_y.xhtml">İletişim</a></li>
+				
+			</ul>
+			</div>
+			<div class="col-md-3 specials1">
+			<h3>Bizi Takip Edin</h3>
+			<ul>
+				<li><a href="https://www.facebook.com/">Facebook</a></li>
+				<li><a href="https://twitter.com/">Twitter</a></li>
+				<li><a href="https://foursquare.com/">Foursquare</a></li>
+				<li><a href="https://www.instagram.com/">İnstagram</a></li>
+			</ul>
+			</div>
+			<div class="clearfix"></div>
+			</div>
+			</div>
+
+	<div class="footer-section">
+					<div class="container">
+						<div class="footer-top">
+						<p>&copy; 2015 <span>Yermisin </span> Her Hakkı Saklıdır | DAÇ Yazılım</p>
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>
+				<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+					</div>
+					</div>
+					
+					</h:body>
+					
+					</html>

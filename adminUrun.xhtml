@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+ <script>// Güncelleme işlemi sonucunu pop-up olarak bize verecek.
+            function mesaj(){
+                if(#{f.Guncelle()})
+                alert("Güncelleme Başarılı.");
+                else
+                alert("Güncelleme Başarısız.");
+            }
+        </script>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Yönetici Paneline Hoşgeldiniz..</title>
+
+	<link href="assets/css/bootstrap.css" rel="stylesheet" />
+	<link href="assets/css/custom.css" rel="stylesheet" />
+	<link href="assets/css/font-awesome.css" rel="stylesheet" />
+	<link href="assets/js/dataTables/dataTables.bootstrap.css"
+		rel="stylesheet" />
+	<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans'
+		rel='stylesheet' type='text/css' />
+
+
+
+
+</h:head>
+<h:body>
+
+	<h:form enctype="multipart/form-data">
+	
+	<div id="wrapper">
+		<nav class="navbar navbar-default navbar-cls-top " role="navigation"
+			style="margin-bottom: 0">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".sidebar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="adminAnasayfa.xhtml">Yönetici</a>
+		</div>
+		<div
+			style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+			<p:clock pattern="HH:mm:ss dd.MM.yyyy" />
+			 <a href="admin.xhtml"
+				class="btn btn-danger square-btn-adjust">Çıkış Yap</a>
+		</div>
+		</nav>
+		<!-- /. NAV TOP  -->
+		<nav class="navbar-default navbar-side" role="navigation">
+		<div class="sidebar-collapse">
+			<ul class="nav" id="main-menu">
+				<li class="text-center"><img src="assets/img/find_user.png"
+					class="user-image img-responsive" /></li>
+
+
+				<li><a class="Aktif Menü" href="adminAnasayfa.xhtml"><i
+						class="fa fa-dashboard fa-3x"></i>Aktif Menü</a></li>
+				<li><a href="adminUrun.xhtml"><i
+						class="fa fa-desktop fa-3x"></i> Ürün İşlemleri</a></li>
+				<li><a href="adminKategori.xhtml"><i
+						class="fa fa-qrcode fa-3x"></i> Kategori İşlemleri</a></li>
+				<li><a href="adminMusteri.xhtml"><i
+						class="fa fa-bar-chart-o fa-3x"></i> Müşteri İşlemleri</a></li>
+				<li><a href="adminSiparis.xhtml"><i
+						class="fa fa-table fa-3x"></i> Siparişler</a></li>
+				<li><a href="adminAyarlar.xhtml"><i
+						class="fa fa-edit fa-3x"></i>Ayarlarım </a></li>
+
+
+
+			</ul>
+
+		</div>
+
+		</nav>
+		<!-- /. NAV SIDE  -->
+		<div id="page-wrapper">
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Yönetici Paneli</h2>
+						<h5>Ürün İşlem Sayfasına Hoşgeldin </h5>
+
+
+
+
+					
+
+      <h:commandButton action="#{f.KayitCek}" styleClass="btn btn-warning" disabled="#{not f.deger}" value="Ürünleri Listelemek İçin Tıklayınız ">
+      <f:setPropertyActionListener value="#{false}" target="#{f.deger}" />
+      </h:commandButton>
+                  <p:dataTable id="tbl" value="#{f.list}" var="car" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+								paginator="true" rows="10" style="margin-bottom:20px" >
+								
+
+
+								
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Kod" />
+									</f:facet>
+ 									<h:inputText value="#{car.urun_kod}"
+ 										rendered="#{car.guncellenebilirlik}" /> 
+									<h:outputText value="#{car.urun_kod}" 
+ 										rendered="#{not car.guncellenebilirlik}" /> 
+								</p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Adı" />
+									</f:facet>
+									<h:inputText value="#{car.urun_adi}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.urun_adi}"
+										rendered="#{not car.guncellenebilirlik}" />
+								 </p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Fiyatı" />
+									</f:facet>
+									<h:inputText value="#{car.fiyat}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.fiyat}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Kategori Numarası" />
+									</f:facet>
+									<h:inputText value="#{car.kategori_no}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.kategori_no}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column>
+								<f:facet name="header">
+										<h:outputText value="Ürün Açıklaması" />
+									</f:facet>
+									<h:inputText value="#{car.urun_aciklamasi}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.urun_aciklamasi}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column>
+								<f:facet name="header">
+										<h:outputText value="Ürün Resim" />
+									</f:facet>
+								
+										<h:graphicImage value="images/#{car.resim}"  width="140"
+									height="180" styleClass="content" />
+								</p:column>
+								 <p:column> 
+ 									<f:facet name="header"> 
+ 										<h:outputText value="Ürün Sil " /> 
+									</f:facet> 
+									<h:commandButton value="Sil" class="btn btn-primary" 
+										action="#{f.delete(car.urun_kod)}" 
+										style="width:120px;height:40px"> 
+									</h:commandButton> 
+								</p:column> 
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Düzenle" />
+									</f:facet>
+									<h:commandButton value="Güncelle" class="btn btn-primary" 
+										action="#{f.guncellenebilirligiDegistir(car)}"
+										rendered="#{not car.guncellenebilirlik}" 
+										style="width:120px;height:40px"> 
+									</h:commandButton> 
+									
+								 									
+								</p:column>
+        </p:dataTable>
+            <h:commandButton value="Değişiklikleri Kaydetmek İçin Tıklayınız" styleClass="btn btn-warning" action="#{f.DegisikKaydet()}"/>
+            
+        
+
+<!-- 							<p:contentFlow value="#{urunlerBean.urunlerList}" var="image"> -->
+<!-- 								<h:graphicImage value="images/#{image.resim}"  width="300" -->
+<!-- 									height="300" styleClass="content" /> -->
+<!-- 									<h:outputText value="#{image.urun_adi}" /> -->
+							
+<!-- 							</p:contentFlow> -->
+							
+							
+							
+
+
+						
+
+							<h3>Bu Formatlarda Döküman Alabilirsiniz</h3>
+							<h:commandLink>
+								<p:graphicImage value="images/excel.png" width="24" />
+								<p:dataExporter type="xls" target="tbl" fileName="Ürünler"
+									pageOnly="true" />
+							</h:commandLink>
+
+							<h:commandLink>
+								<p:graphicImage value="images/pdf.png" width="24" />
+
+								<p:dataExporter type="pdf" target="tbl" fileName="Ürünler"
+									pageOnly="true" />
+							</h:commandLink>
+
+							<h:commandLink>
+								<p:graphicImage value="images/csv.png" width="24" />
+								<p:dataExporter type="csv" target="tbl" fileName="Ürünler"
+									pageOnly="true" />
+							</h:commandLink>
+
+							<h:commandLink>
+								<p:graphicImage value="images/xml.png" width="24" />
+								<p:dataExporter type="xml" target="tbl" fileName="Ürünler"
+									pageOnly="true" />
+							</h:commandLink>
+							
+							
+							<br></br>
+							<br></br>
+							<br></br>
+							
+						
+						
+							<h3>
+                            	<h:outputLabel value="Ürün Ekleme " for="acSimple" />
+                            </h3>
+
+
+							
+						
+					<p:panelGrid columns="2" cellpadding="5" >
+								
+									<p:outputLabel value="Ürün Kod:"  />
+									
+									<p:inputText value="#{adminUrunEkle.u.urun_kod}"  />
+									
+									
+									<p:outputLabel value="Ürün Adını Giriniz:"  />
+									
+									<p:inputText value="#{adminUrunEkle.u.urun_adi}" />
+									
+									<p:outputLabel value="Ürün Fiyatı:"  />
+									
+									<p:inputText value="#{adminUrunEkle.u.fiyat}" />
+									
+									
+									<p:outputLabel value="Kategori Numarası:"  />
+									
+									<p:inputText value="#{adminUrunEkle.u.kategori_no}" />
+									
+									<p:outputLabel value="Ürün Açıklaması:"  />
+									
+									<p:inputText value="#{adminUrunEkle.u.urun_aciklamasi}" />
+
+
+							
+									<p:outputLabel value="Resim Seçin" />
+									<h:inputFile value="#{adminUrunEkle.file}" />
+
+								<p:outputLabel value="Ürün Ekleme İşlemini Tamamla" />
+
+								<h:commandButton value="Kaydet" class="btn btn-primary"
+								   action="#{adminUrunEkle.upload()}" />
+									
+							 </p:panelGrid>
+							 
+							 
+							 
+						
+							
+							
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+</h:form>	
+
+
+	<script src="assets/js/jquery-1.10.2.js"></script>
+
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<script src="assets/js/custom.js"></script>
+
+	<script src="assets/js/jquery.metisMenu.js"></script>
+
+	<script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+
+	<script src="assets/js/morris/morris.js"></script>
+
+	<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+
+	<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+
+
+
+</h:body>
+</html>

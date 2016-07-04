@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:p="http://primefaces.org/ui"  >
+
+  <h:head>
+
+
+
+  
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ 
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});	$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+	</script>
+					
+  
+  </h:head>
+  
+
+<h:body>
+            <div id="header">
+			<ui:insert name="header" >
+				<ui:include src="/commonHeader.xhtml" />
+			</ui:insert>
+	    </div>
+			<div class="content">
+			<div class="menu-section">
+					<div class="container">
+						<h3 style="font-size:50px;font-weight: bold" styleClass="label label-success"> Menülerimiz</h3>
+					
+					
+					
+	
+									
+	
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="menu_y.xhtml">Menülerimize Göz Atın</a>
+    </div>
+    <ul class="nav navbar-nav">
+ 
+      <li><a href="menu_corbalar.xhtml">Çorbalar</a></li>
+      <li><a href="menu_tavuk.xhtml"> Tavuk Ürünleri</a></li> 
+      <li><a href="menu_et.xhtml"> Et Ürünleri</a></li> 
+      <li><a href="menu_sebze.xhtml">Sebze Yemekleri</a></li> 
+      <li><a href="menu_salata.xhtml">Salatalar</a></li> 
+      <li><a href="menu_tatli.xhtml">Tatlılar</a></li> 
+      <li><a href="menu_icecek.xhtml">İçecekler</a></li>  
+      
+    </ul>
+  </div>
+</nav>				
+						
+					<br></br>
+					<br></br>
+			 <h:form>		
+    <rich:panel>
+        <f:facet name="header">
+            
+        </f:facet>
+       
+      
+       <style>
+.label{
+font-weight:bold;
+}
+.pbody{
+    width:350px;
+    height:100px; 
+}
+</style>
+
+
+ <rich:dataGrid value="#{corbalarBean.urunlerList}" var="car" columns="3" elements="100" width="1000px" >
+            <rich:panel bodyClass="pbody">
+                <f:facet name="header">
+                 
+   
+   
+    
+     
+    
+                 <h:outputText value="#{car.urun_adi}" style="font-size: 25px;width:320px;font-family: Comic Sans MS, cursive, sans-serif;"
+                  styleClass="btn btn-default"   >
+                  
+                  </h:outputText>
+                  
+                  
+                  
+                   <br></br>
+                    <br></br>
+                
+                   
+                   <h:graphicImage value="images/#{car.resim}"  width="320" height="240" class="img-rounded" /> 
+           
+                
+                </f:facet>
+               <h:panelGrid columns="5">
+
+      <h:commandButton id="button" value="Sepete Ekle" 
+         action="#{sepeteEkle2.fiyatBul(car.urun_kod)}"
+                  
+                  
+                     image="images/add_basket.jpg"  style="font-size:18px;font-weight:bold; width:160px;height:40px">
+                     
+                     <f:ajax execute="isim" render="cikti1"/></h:commandButton>
+              &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;         
+                     
+         
+     	        
+                     <p:commandLink  update="dialog"
+                       
+                      actionListener="#{sebzelerBean.buttonListener(car.urun_kod)}" oncomplete="PF('dlg').show();" >
+                      <f:ajax  execute="isim"  render="cikti1"/>
+                      <h:graphicImage value="/images/zoom.png" style="width:40px;height:40px"></h:graphicImage>
+                      </p:commandLink>
+       &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+      <h:outputText value="#{car.fiyat} TL"  style="font-size:18px;font-weight: bold" styleClass="label label-warning"/>
+      	
+  		 
+                
+
+                </h:panelGrid>
+            </rich:panel>
+            <f:facet name="footer">
+
+            </f:facet>
+        </rich:dataGrid>
+        
+    </rich:panel>    
+		  </h:form>
+	 <p:dialog  header="Ürün Detay" widgetVar="dlg" resizable="false" id="dialog" >
+         <h:form>
+	 
+    <h:outputText value="#{sebzelerBean.urun_adi}" style="font-size: 25px;width:320px;font-family: Comic Sans MS, cursive, sans-serif;"
+                  styleClass="btn btn-default"   />
+                  
+                 <br></br> 
+     <h:graphicImage value="images/#{sebzelerBean.resim}" style="font-size: 25px;width:320px;font-family: Comic Sans MS, cursive, sans-serif;"
+                  styleClass="btn btn-default"   />
+                  
+                  <br></br>
+                <h:inputTextarea readonly="true" value="#{sebzelerBean.urun_aciklamasi}"  style="font-size: 12px;width:320px;font-family: Comic Sans MS, cursive, sans-serif;"
+                  styleClass="btn btn-default"   />                                    
+                      
+                  
+                  
+                  <br></br>
+    <h:outputText value=" Ürün Fiyatı : #{sebzelerBean.fiyat} TL" style="font-size: 25px;width:320px;font-family: Comic Sans MS, cursive, sans-serif;"
+                  styleClass="btn btn-default"   />                                    
+                        
+     </h:form>
+    </p:dialog>	  
+		  <h:form id="cikti1">
+		  
+		<div id="header">
+			<ui:insert name="header" >
+				<ui:include src="/commonSepet.xhtml" />
+			</ui:insert>
+	    </div>
+					
+					
+			</h:form>		
+					</div>
+					</div>
+					
+					
+					
+					
+
+ 
+			<div id="footer">
+	    	<ui:insert name="footer" >
+	    		<ui:include src="/commonFooter.xhtml" />
+	    	</ui:insert>
+    	</div>
+					</div>
+
+  
+
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

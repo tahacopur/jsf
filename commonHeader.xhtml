@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+
+
+<h:outputStylesheet library="css" name="style.css" />
+<h:outputStylesheet library="css" name="flexslider.css" /> 
+<h:outputStylesheet library="css" name="bootstrap.css" />
+<h:outputStylesheet library="css" name="chocolat.css" />
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+  <script src="js/move-top.js"></script>
+  <script src="js/easing.js"></script>
+  <script src="js/simpleCart.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/jquery.chocolat.js"></script>
+  <script src="js/jquery.flexslider.js"></script>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Yermisin</title>
+
+
+
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ 
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});	$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+	</script>
+							  
+			</h:head>			
+<h:body>
+
+
+		<!-- start-header section-->
+			<div class="header">
+				<div class="container">
+				     <div class="top-header">
+						<div class="phone">
+							<ul>
+								<h:graphicImage value="/images/tel.png" width="30" height="30"></h:graphicImage>
+								<li><p>+90 242 00 00 </p></li>
+							</ul>
+						</div>
+						
+	 <h:form>
+
+						<div class="logo">
+
+					<h:commandLink action="index_y.xhtml">
+						<h:graphicImage value="/images/logoo.png" width="300" height="100"></h:graphicImage>
+					</h:commandLink>
+				</div>
+  </h:form>				
+						
+						<div class="header-right">
+						<div class="header-right">
+						</div>
+					
+		<h:outputText value="#{login.adiSoyadi}" style="font-size: 25px;width:320px;
+				  font-family: Comic Sans MS, cursive, sans-serif;color:orange" >
+                  
+                  </h:outputText>
+                 
+      <h:outputLink value="musteriAyarlar.xhtml" style="text-decoration:none">
+      <br></br>
+      <h:outputText value="#{login.ayarlarim}" style="font-size: 20px;width:320px;
+				  font-family: Comic Sans MS, cursive, sans-serif;color:black" >
+                  
+       </h:outputText>
+      
+      </h:outputLink>
+					
+						<br></br>
+										  
+
+						
+						<br></br>
+						<br></br>
+						<div class="login" margin-right="2px">
+					
+						</div>
+
+<h:form>
+<h:commandButton value="Üye Ol"  action="account_y.xhtml?faces-redirect=true" disabled="#{not login.deger}" class="btn btn-warning">
+<f:setPropertyActionListener value="#{true}" target="#{login.deger}" />
+</h:commandButton> 
+<h:commandButton value="Giriş Yap"  action="login_y.xhtml?faces-redirect=true"  disabled="#{not login.deger}" class="btn btn-warning">
+				<f:setPropertyActionListener value="#{true}" target="#{login.deger}" />
+</h:commandButton> 
+						
+<h:commandButton value="Çıkış"  action="#{login.logout}" disabled="#{login.deger}" class="btn btn-warning">
+				<f:setPropertyActionListener value="#{false}" target="#{login.deger}" />  
+
+</h:commandButton> 
+
+</h:form>
+				
+						
+				</div>
+		
+						<div class="clearfix"></div>
+					</div>	
+				</div>
+			</div>
+		<!-- end-header section-->
+		<!--start-banner-->
+			<div class="banner ban1">
+				<div class="container">
+					<div class="top-menu">
+					<span class="menu"><img src="images/nav.png" alt=""/> </span>
+					<ul>
+							<li><a  href="index_y.xhtml">Anasayfa</a></li>
+							<li><a  href="about_y.xhtml" >Hakkımızda</a></li>
+							<li><a  href="menu_deneme.xhtml">Menüler</a></li>
+							<li><a  href="gallery_y.xhtml">Galeri</a></li>
+							
+							<li><a  href="contact_y.xhtml">İletişim</a></li>
+						</ul>
+						<!-- script for menu -->
+									
+							 <script>
+							 $("span.menu").click(function(){
+							 $(".top-menu ul").slideToggle("slow" , function(){
+							 });
+							 });
+							 </script>
+						<!-- //script for menu -->
+					</div>
+					</div>	
+			</div>
+                </h:body></html>

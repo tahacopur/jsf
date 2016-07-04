@@ -1,0 +1,106 @@
+﻿<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <script>// Güncelleme işlemi sonucunu pop-up olarak bize verecek.
+            function mesaj(){
+                if(#{f.Guncelle()})
+                alert("Güncelleme Başarılı.");
+                else
+                alert("Güncelleme Başarısız.");
+            }
+        </script>
+    </h:head>
+    <h:body>
+       
+						<h:form enctype="multipart/form-data">
+
+             <h:commandButton action="#{f.KayitCek}" value="GÖNDER"/><!--Kaydı veritabanından çeken metodu çalıştıracak.-->
+            <p:dataTable value="#{f.list}" var="car" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+								paginator="true" rows="10" style="margin-bottom:20px"> <!--Gelen sonuçlar buraya aktarılacak.-->
+           <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Kod" />
+									</f:facet>
+ 									<h:inputText value="#{car.urun_kod}"
+ 										rendered="#{car.guncellenebilirlik}" /> 
+									<h:outputText value="#{car.urun_kod}" 
+ 										rendered="#{not car.guncellenebilirlik}" /> 
+								</p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Adı" />
+									</f:facet>
+									<h:inputText value="#{car.urun_adi}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.urun_adi}"
+										rendered="#{not car.guncellenebilirlik}" />
+								 </p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Fiyatı" />
+									</f:facet>
+									<h:inputText value="#{car.fiyat}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.fiyat}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Kategori Numarası" />
+									</f:facet>
+									<h:inputText value="#{car.kategori_no}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.kategori_no}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column>
+								<f:facet name="header">
+										<h:outputText value="Ürün Açıklaması" />
+									</f:facet>
+									<h:inputText value="#{car.urun_aciklamasi}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.urun_aciklamasi}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column>
+								<f:facet name="header">
+										<h:outputText value="Resim" />
+									</f:facet>
+								
+									<h:inputText value="#{car.resim}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.resim}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column> 
+ 									<f:facet name="header"> 
+ 										<h:outputText value="Ürün Sil " /> 
+									</f:facet> 
+									<h:commandButton value="Sil" class="btn btn-primary" 
+										action="#{f.delete(car.urun_kod)}" 
+										style="width:120px;height:40px"> 
+									</h:commandButton> 
+								</p:column> 
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Düzenle" />
+									</f:facet>
+									<h:commandLink value="Güncelle"
+										action="#{f.guncellenebilirligiDegistir(car)}"
+										rendered="#{not car.guncellenebilirlik}" />
+								 									
+								</p:column>
+        </p:dataTable>
+            <h:commandButton value="Değişiklikleri Kaydet" action="#{f.DegisikKaydet()}"/>
+            
+        </h:form>
+    </h:body>
+</html>

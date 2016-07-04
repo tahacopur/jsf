@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+     xmlns:p="http://primefaces.org/ui">
+  
+
+<h:body>
+            <div id="header">
+			<ui:insert name="header" >
+				<ui:include src="/commonHeader.xhtml" />
+			</ui:insert>
+	    </div>
+		
+				
+			<!--contact-->
+			<div class="content">
+				<div class="contact">
+			<div class="container">
+				<h3>İletişime Geçin</h3>
+				<div class="google-map">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12616.41467773267!2d30.552505183361816!3d37.76416730751257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c5b5b9ea53bd1b%3A0x113148f99ec28142!2sAksu+Cd.+No%3A65%2C+Sermet%2C+32300+Isparta+Merkez%2FIsparta%2C+T%C3%BCrkiye!5e0!3m2!1str!2s!4v1456612719076" width="600" height="450" frameborder="0" style="border:0" allowfullscreen="1600"></iframe></div>
+			<div class="contact-grids">
+				<div class="col-md-6 contact-left">
+						<span> Görüş ve sorunlarınız için yermisin.yemek@gmail.com
+							adresine email gönderebilir veya +90 242 00 00 numaralı telefondan
+							bize ulaşabilirsiniz. 
+						</span> 	
+							
+					<address>
+						<p>Şirket Unvanı :Yemek Sepeti Elektronik İletişim Tanıtım Pazarlama Gıda Sanayi ve Ticaret A.Ş.</p>
+								<p>Sorumlu Kişiler:	Cemal Acar</p>
+								<p>Merkezin Bulunduğu Yer: TÜRKİYE/Isparta/Merkez</p>
+								<p>Telefon: +90 242 00 00</p>
+								<p>E-mail: yermisin.yemek@gmail.com</p>
+							
+					</address>
+					</div>
+					<div class="col-md-6 contact-right">
+											
+						<h:form>
+						
+							
+							 <h:outputText value="İsim"/>
+							 <h:inputText value="#{mail.ad}"/>
+							 <h1></h1>
+							 
+							 <h:outputText value="E_mail adresi"/>
+							 <h:inputText value="#{mail.mailAdresi}"/>
+							 <h1></h1>
+							 
+							 <h:outputText value="Mesajınız"/>
+							 <h:inputTextarea value="#{mail.gorus}"/>
+							 <h1></h1>
+							 
+							 <h:commandButton actionListener="#{mail.mailAt}" value="GÖNDER" action="account_y.xhtml?faces-redirect=true"/>
+           
+							
+						</h:form>
+					</div>
+					<div class="clearfix"></div>
+									</div>
+							</div>
+					</div>
+			<div id="footer">
+	    	<ui:insert name="footer" >
+	    		<ui:include src="/commonFooter.xhtml" />
+	    	</ui:insert>
+    	</div>
+ </div>
+
+
+	
+</h:body>
+</html>

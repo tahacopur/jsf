@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+            <div id="header">
+			<ui:insert name="header" >
+				<ui:include src="/commonHeader.xhtml" />
+			</ui:insert>
+	    </div>
+			<div class="content">
+ <!-- registration -->
+ <h:form>
+	<div class="main-1">
+		<div class="container">
+			<div class="register">
+		  	 
+				 <div class="register-top-grid">
+					<h3>Kişisel Bilgiler</h3>
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>İsim<label>*</label></span>
+						
+			
+			<p:inputText id="firstname" value="#{kayitEkle.m.musteri_adi}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="Firstname">
+               <f:validateLength minimum="2" />
+              
+            </p:inputText>
+			<p:message for="firstname"> </p:message>			 
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						<span>Soyisim<label>*</label></span>
+						
+			<p:inputText id="surname" value="#{kayitEkle.m.musteri_soyadi}" requiredMessage="Boşluk Doldurumalıdır" required="true" style="width:400px" 
+			label="surname">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+					
+			<p:message for="surname"> </p:message>		
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						 <span>E_mail<label>*</label></span>
+							
+			<p:inputText id="email" value="#{kayitEkle.m.email}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="email">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+			<p:message for="email"> </p:message>		
+					
+					 </div>
+					 
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>Telefon<label>*</label></span>
+								
+			<p:inputText id="telefon" value="#{kayitEkle.m.telefon}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="telefon">
+                <f:validateLength minimum="11" />
+            </p:inputText>
+			<p:message for="telefon"> </p:message>		
+					
+					 </div>
+					 
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>Adres<label>*</label></span>
+							
+			<p:inputText id="adres" value="#{kayitEkle.m.adres}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="adres">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+			<p:message for="adres"> </p:message>
+					
+					 </div>
+					 
+					
+					 
+					 <div class="clearfix"> </div>
+					   <a class="news-letter" href="#">
+						 <label class="checkbox">
+				 
+</label>
+					   </a>
+					 </div>
+				     <div class="register-bottom-grid">
+						    <h3>Şifre Belirleyiniz</h3>
+							 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+								<span>Şifre<label>*</label></span>
+							
+			<p:password id="sifre" value="#{kayitEkle.m.sifre}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="sifre">
+                <f:validateLength minimum="2" />
+            </p:password>
+			<p:message for="sifre"> </p:message>		
+	
+					
+			</div>
+
+					 </div>
+				
+				<div class="clearfix"> </div>
+				<div class="register-but">
+				  
+				
+								
+		<p:commandButton value="Uyarılar" type="button" onclick="PF('dlg3').show();" 
+		
+		class="btn btn-warning"/> 
+		  
+		
+			
+			<br></br>
+			<br></br>
+			<p:dialog header="Dikkat Edilmesi Gerekenler" widgetVar="dlg3" resizable="false" showEffect="explode" hideEffect="bounce" height="100">
+   			<h:outputText value="Tüm alanlar en az 2 karakter olmalıdır" />
+   			<br></br>
+			<h:outputText value="Telefon alanı 11 karakter olmalıdır" />
+			<br></br>
+			<h:outputText value="Şifreniz en az 5 karakter olmalıdır" />
+				</p:dialog>
+			
+				<h:form>
+				
+			  <h:commandButton value="Kaydet" action="#{kayitEkle.veriTabaninaGonder}" class="btn btn-warning"/>
+				 	</h:form>
+					   <div class="clearfix"> </div>
+				
+				</div>
+								 
+			
+		   </div>
+		 </div>
+	</div>
+	</h:form>
+<!-- registration -->
+
+
+
+    <div id="footer">
+	    	<ui:insert name="footer" >
+	    		<ui:include src="/commonFooter.xhtml" />
+	    	</ui:insert>
+    	</div>
+    	</div>
+
+
+	
+</h:body>
+  
+</html>
+	

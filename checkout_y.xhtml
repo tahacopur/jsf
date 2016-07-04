@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+<h:outputStylesheet library="css" name="style.css" />
+<h:outputStylesheet library="css" name="flexslider.css" /> 
+<h:outputStylesheet library="css" name="bootstrap.css" />
+<h:outputStylesheet library="css" name="chocolat.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Yermisin</title>
+</h:head>
+<h:outputScript library="js" name="jquery-1.11.1.min.js" /> 
+<h:outputScript library="js" name="move-top.js" /> 
+<h:outputScript library="js" name="easing.js" /> 
+<h:outputScript library="js" name="jquery.flexslider.js" /> 
+<h:outputScript library="js" name="simpleCart.min.js" /> 
+<h:outputScript library="js" name="bootstrap.js" /> 
+<h:outputScript library="js" name="jquery.chocolat.js" /> 
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ 
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});	$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+	</script>
+							  
+							  
+<h:body>
+
+		<!-- start-header section-->
+			<div class="header">
+				<div class="container">
+				     <div class="top-header">
+						<div class="phone">
+							<ul>
+								<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
+								<li><p>+90 444 33 22</p></li>
+							</ul>
+						</div>
+						<div class="logo">
+							<h1><a href="index_y.xhtml">Yermisin</a></h1>
+						</div>
+						<div class="header-right">
+						<div class="login">
+						<a href="login_y.xhtml">Giris</a>
+						</div>
+						<div class="cart box_1">
+							<a href="checkout_y.xhtml">
+								<h3> <span class="simpleCart_total"> $0.00 </span> (<span id="simpleCart_quantity" class="simpleCart_quantity"> 0 </span> items)<img src="images/bag.png" alt=""/></h3>
+							</a>	
+							<p><a href="javascript:;" class="simpleCart_empty">Sepet</a></p>
+							<div class="clearfix"> </div>
+						</div>
+				</div>
+		
+						<div class="clearfix"></div>
+					</div>	
+				</div>
+			</div>
+		<!-- end-header section-->
+		<!--start-banner-->
+			<div class="banner ban1">
+				<div class="container">
+					<div class="top-menu">
+					<span class="menu"><img src="images/nav.png" alt=""/> </span>
+						<ul>
+							<li><a  href="index_y.xhtml">Anasayfa</a></li>
+							<li><a  href="about_y.xhtml">Hakkında</a></li>
+							<li><a  href="menu_y.xhtml">Menüler</a></li>
+							<li><a  href="gallery_y.xhtml">Galeri</a></li>
+						
+							<li><a  href="contact_y.xhtml">İletişim</a></li>
+					</ul>	
+					
+									
+							 <script>
+							 $("span.menu").click(function(){
+							 $(".top-menu ul").slideToggle("slow" , function(){
+							 });
+							 });
+							 </script>
+						<!-- //script for menu -->
+					</div>
+					</div>	
+			</div>
+	
+	
+	
+	
+<!-- checkout -->
+<div class="cart-items">
+	<div class="container">
+			 <h1>My Shopping Bag (3)</h1>
+				<script>$(document).ready(function(c) {
+					$('.close1').on('click', function(c){
+						$('.cart-header').fadeOut('slow', function(c){
+							$('.cart-header').remove();
+						});
+						});	  
+					});
+			   </script>
+			 <div class="cart-header">
+				 <div class="close1"> </div>
+				 <div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							 <img src="images/c1.jpg" class="img-responsive" alt=""/>
+						</div>
+					   <div class="cart-item-info">
+						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+						<ul class="qty">
+							<li><p>Min. order value:</p></li>
+							<li><p>FREE delivery</p></li>
+						</ul>
+							 <div class="delivery">
+							 <p>Service Charges : $10.00</p>
+							 <span>Delivered in 1-1:30 hours</span>
+							 <div class="clearfix"></div>
+				        </div>	
+					   </div>
+					   <div class="clearfix"></div>
+											
+				  </div>
+			 </div>
+			 <script>$(document).ready(function(c) {
+					$('.close2').on('click', function(c){
+							$('.cart-header2').fadeOut('slow', function(c){
+						$('.cart-header2').remove();
+					});
+					});	  
+					});
+			 </script>
+			 <div class="cart-header2">
+				 <div class="close2"> </div>
+				  <div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							 <img src="images/c2.jpg" class="img-responsive" alt=""/>
+						</div>
+					   <div class="cart-item-info">
+						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+						<ul class="qty">
+							<li><p>Min. order value:</p></li>
+							<li><p>FREE delivery</p></li>
+						</ul>
+							 <div class="delivery">
+							 <p>Service Charges : $10.00</p>
+							 <span>Delivered in 1-1:30 hours</span>
+							 <div class="clearfix"></div>
+				        </div>	
+					   </div>
+					   <div class="clearfix"></div>
+											
+				  </div>
+			  </div>
+			  <script>$(document).ready(function(c) {
+					$('.close3').on('click', function(c){
+							$('.cart-header3').fadeOut('slow', function(c){
+						$('.cart-header3').remove();
+					});
+					});	  
+					});
+			 </script>
+			  <div class="cart-header3">
+				 <div class="close3"> </div>
+				  <div class="cart-sec simpleCart_shelfItem">
+						<div class="cart-item cyc">
+							 <img src="images/c3.jpg" class="img-responsive" alt=""/>
+						</div>
+					   <div class="cart-item-info">
+						<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+						<ul class="qty">
+							<li><p>Min. order value:</p></li>
+							<li><p>FREE delivery</p></li>
+						</ul>
+							 <div class="delivery">
+							 <p>Service Charges : $10.00</p>
+							 <span>Delivered in 1-1:30 hours</span>
+							 <div class="clearfix"></div>
+				        </div>	
+					   </div>
+					   <div class="clearfix"></div>
+											
+				  </div>
+			  </div>		
+		 </div>
+		 </div>
+<!-- checkout -->	
+<div class="specials-section">
+			<div class="container">
+				<div class="col-md-3 specials">
+				<h3>Biz Kimiz?</h3>
+				<p>Biz insanlara farklı lezzetler tatmayı amaçlayan bir kurumuz ve bunu en kolay yoldan size ulaştırmayı amaçlıyoruz..</p>
+				</div>
+				<div class="col-md-3 specials1">
+				<h3>En Çok Satılanlar</h3>
+				<ul>
+					<li><a href="menu_tavuk.xhtml">Tavuk Menülerimiz</a></li>
+					<li><a href="menu_et.xhtml">Et Menülerimiz</a></li>
+					<li><a href="menu_salata.xhtml">Salatalarımız</a></li>
+				
+				</ul>
+				</div>
+			<div class="col-md-3 specials1">
+			<h3>İletişime Geçin</h3>
+			<ul>
+				<li><a href="contact_y.xhtml">İletişim</a></li>
+				
+			</ul>
+			</div>
+			<div class="col-md-3 specials1">
+			<h3>Bizi Takip Edin</h3>
+			<ul>
+				<li><a href="https://www.facebook.com/">Facebook</a></li>
+				<li><a href="https://twitter.com/">Twitter</a></li>
+				<li><a href="https://foursquare.com/">Foursquare</a></li>
+				<li><a href="https://www.instagram.com/">İnstagram</a></li>
+			</ul>
+			</div>
+			<div class="clearfix"></div>
+			</div>
+			</div>
+	
+	<div class="footer-section">
+					<div class="container">
+						<div class="footer-top">
+						<p>&copy; 2015 <span>Yermisin </span> Her Hakkı Saklıdır | DAÇ Yazılım</p>
+					</div>
+					<script type="text/javascript">
+						$(document).ready(function() {
+							/*
+							var defaults = {
+					  			containerID: 'toTop', // fading element id
+								containerHoverID: 'toTopHover', // fading element hover id
+								scrollSpeed: 1200,
+								easingType: 'linear' 
+					 		};
+							*/
+							
+							$().UItoTop({ easingType: 'easeOutQuart' });
+							
+						});
+					</script>
+				<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+					</div>
+					</div>
+
+</h:body>
+</html>

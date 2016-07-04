@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:p="http://primefaces.org/ui"  >
+
+  <h:head>
+
+
+  
+<script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    }
+</script>
+  
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ 
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});	$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+	</script>
+					
+  
+  </h:head>
+  
+
+<h:body>
+  <div id="header">
+			<ui:insert name="header" >
+				<ui:include src="/commonHeader.xhtml" />
+			</ui:insert>
+	    </div>
+			<div class="content">
+			<div class="menu-section">
+					<div class="container">
+<!-- 						<h3 style="font-size:50px;font-weight: bold" styleClass="label label-success"> Menülerimiz</h3> -->
+					
+					
+					
+	
+									
+	
+<!-- 	<nav class="navbar navbar-default"> -->
+<!--   <div class="container-fluid"> -->
+<!--     <div class="navbar-header"> -->
+<!--       <a class="navbar-brand" href="menu_y.xhtml">Menülerimize Göz Atın</a> -->
+<!--     </div> -->
+<!--     <ul class="nav navbar-nav"> -->
+<!--       <li><a href="menu_corbalar.xhtml">Çorbalar</a></li> -->
+<!--       <li><a href="menu_tavuk.xhtml"> Tavuk Ürünleri</a></li>  -->
+<!--       <li><a href="menu_et.xhtml"> Et Ürünleri</a></li>  -->
+<!--       <li><a href="menu_sebze.xhtml">Sebze Yemekleri</a></li>  -->
+<!--       <li><a href="menu_salata.xhtml">Salatalar</a></li>  -->
+<!--       <li><a href="menu_tatli.xhtml">Tatlılar</a></li>  -->
+<!--       <li><a href="menu_icecek.xhtml">İçecekler</a></li>   -->
+      
+<!--     </ul> -->
+<!--   </div> -->
+<!-- </nav>				 -->
+					
+					
+					
+					
+					
+					
+					
+					<br></br>
+					<br></br>
+					
+     
+
+	<h:form>
+	  
+  <p:carousel value="#{sepeteEkle2.list}"  var="car" itemStyle="text-align:left" responsive="true" 
+  style="width:1050px" >
+      	   <f:facet name="header">
+             
+               <h:outputText value="Sepetinizdeki Tüm Ürünler"></h:outputText>
+            </f:facet>
+           
+      
+            <h:commandButton value="Sil" action="#{sepeteEkle2.sil(car.urun_kod)}" 
+	image="images/carp.jpg"  style="font-size:18px;font-weight:bold;margin-left:325px;
+	 width:20px;height:20px">								   
+										
+									</h:commandButton>
+           <h:outputText value="#{car.urun_adi}" style="font-size: 20px;width:300px;margin-left:60px;
+           font-family: Comic Sans MS, cursive, sans-serif;"/>
+       
+        <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="value" layout="grid" styleClass="ui-panelgrid-blank">
+          
+            <f:facet name="header">
+             
+                 <h:graphicImage value="images/#{car.resim}"  width="300" height="300" class="img-rounded" />
+            </f:facet>
+ 
+            
+          
+            <h:outputText value="Ürün Fiyatı:" style="font-size:18px;font-weight: bold" styleClass="label label-success"/>
+            <h:outputText value="#{car.fiyat} TL" style="font-size: 20px;width:300px;font-family: Comic Sans MS, cursive, sans-serif;"/>
+           
+
+           <h:outputText value="Miktar:" style="font-size:18px;font-weight: bold" styleClass="label label-success"/>
+            <h:outputText value="#{car.top}" style="font-size: 20px;width:300px;font-family: Comic Sans MS, cursive, sans-serif;"/>
+           
+           
+ 
+ 
+  
+                    
+           
+        </p:panelGrid>
+        
+        
+        
+ 
+        <f:facet name="footer">
+              <h:outputText value="Toplam Fiyat = #{sepeteEkle2.toplam} TL" />
+        </f:facet>
+    </p:carousel>
+    </h:form>
+
+  
+  <h:form>            
+    <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login">
+          <p:graphicImage value="images/tamamla.PNG" />
+    </h:outputLink>
+ 
+    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+ 
+    <p:dialog header="Lütfen Bilgilerinizi Giriniz" widgetVar="dlg" resizable="false">
+ 	<div class="main-1">
+		<div class="container">
+			<div class="register">
+		  	 
+				 <div class="register-top-grid">
+					<h3>Bilgilerinizi Giriniz</h3>
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>İsim<label>*</label></span>
+						
+			
+			<p:inputText id="firstname" value="#{siparisEkle.m.m_adi}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="Firstname">
+               <f:validateLength minimum="2" />
+              
+            </p:inputText>
+			<p:message for="firstname"> </p:message>			 
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						<span>Soyisim<label>*</label></span>
+						
+			<p:inputText id="surname" value="#{siparisEkle.m.m_soyadi}" requiredMessage="Boşluk Doldurumalıdır" required="true" style="width:400px" 
+			label="surname">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+					
+			<p:message for="surname"> </p:message>		
+					 </div>
+					 <div class="wow fadeInRight" data-wow-delay="0.4s">
+						 <span>E_mail<label>*</label></span>
+							
+			<p:inputText id="email" value="#{siparisEkle.m.m_email}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="email">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+			<p:message for="email"> </p:message>		
+					
+					 </div>
+					 
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>Telefon<label>*</label></span>
+								
+			<p:inputText id="telefon" value="#{siparisEkle.m.m_tel}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="telefon">
+                <f:validateLength minimum="11" />
+            </p:inputText>
+			<p:message for="telefon"> </p:message>		
+					
+					 </div>
+					 
+					 <div class="wow fadeInLeft" data-wow-delay="0.4s">
+						<span>Adres<label>*</label></span>
+							
+			<p:inputText id="adres" value="#{siparisEkle.m.m_adres}" required="true" requiredMessage="Boşluk Doldurumalıdır" style="width:400px" 
+			label="adres">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+			<p:message for="adres"> </p:message>
+					
+					 </div>
+					 
+					
+					 
+					 <div class="clearfix"> </div>
+					   <a class="news-letter" href="#">
+						 <label class="checkbox">
+				 
+</label>
+					   </a>
+					 </div>
+				 
+				
+				<div class="clearfix"> </div>
+				<div class="register-but">
+				  
+				
+				<h:form>
+				
+			  <h:commandButton value="Siparişi Tamamla" action="#{siparisEkle.veriTabaninaGonder}" class="btn btn-warning"/>
+				 	</h:form>
+					   <div class="clearfix"> </div>
+				
+				</div>
+								 
+			
+		   </div>
+		 </div>
+	</div>
+    </p:dialog>
+</h:form>
+ 
+  
+  
+						</div>
+					</div>
+			
+					</div>
+
+
+		<div id="footer">
+	    	<ui:insert name="footer" >
+	    		<ui:include src="/commonFooter.xhtml" />
+	    	</ui:insert>
+    	</div>
+</h:body>
+</html>

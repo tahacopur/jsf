@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	 xmlns:ui="http://java.sun.com/jsf/facelets"
+	 xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+            <div id="header">
+			<ui:insert name="header" >
+				<ui:include src="/commonHeader.xhtml" />
+			</ui:insert>
+	    </div>
+	    
+ <div class="content">
+ <div class="main-1">
+		<div class="container">
+<div class="login-page">
+			   <div class="account_grid">
+			   <div class="col-md-6 login-left wow fadeInLeft" data-wow-delay="0.4s">
+			  	 <h3>Yeni Müşteriler</h3>
+				 <p>Üye olup fırsatlarımızı görebilir ve sipariş verebilirsiniz.</p>
+				 <a class="acount-btn" href="account_y.xhtml">Yeni Hesap Oluştur</a>
+			   </div>
+			   <div class="col-md-6 login-right wow fadeInRight" data-wow-delay="0.4s">
+			  	<h3>Kayıtlı Müşterilerimiz</h3>
+				<p>Zaten bir hesabın varsa giriş yap.</p>
+				<h:form>
+				
+		<p:panel id="panel" header="Email Adresin ve Şifrenle Giriş Yapabilirsin">
+			<p:messages id="msgs" />
+ 			<h:panelGrid columns="3" cellpadding="5" >
+				
+					<h:outputText value="Email: "></h:outputText>
+			<p:inputText id="firstname" value="#{login.m.email}" required="true" style="width:200px" 
+			label="Firstname">
+                <f:validateLength minimum="2" />
+            </p:inputText>
+					
+					<p:message for="firstname" display="icon" />
+				
+				  
+					<h:outputText value="Şifre : "></h:outputText>
+			<p:password id="lastname" value="#{login.m.sifre}" label="Lastname" 
+			
+			 style="width:200px"    required="true">
+                <f:validateLength minimum="2" />
+                <f:ajax update="msgLastname" event="keyup"  />
+            </p:password>
+            <p:message for="lastname" id="msgLastname" display="icon" />
+ 
+<!-- 				  <a class="forgot" href="#">Parolamı Unuttum </a> -->
+				  
+				   
+       </h:panelGrid>
+       </p:panel>
+				  <h:commandButton value="Giriş" action="#{login.loogin}"  ></h:commandButton>
+				 
+				  
+			       </h:form>
+			       <h:form>
+			       <h:commandButton value="Yönetici Girişi" action="admin"></h:commandButton>
+			       <h:commandButton value="Şifremi Unuttum" action="sifremiUnuttum"></h:commandButton>
+			       </h:form>
+			   </div>	
+			   <div class="clearfix"> </div>
+			 </div>
+		   </div>
+		   </div>
+	</div>
+	</div>
+<!-- login -->
+
+<div id="footer">
+	    	<ui:insert name="footer" >
+	    		<ui:include src="/commonFooter.xhtml" />
+	    	</ui:insert>
+    	</div>
+					
+
+
+	
+</h:body>
+</html>

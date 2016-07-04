@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">  
+
+<h:head>
+<h:outputStylesheet library="css" name="style3.css" />
+<h:outputStylesheet library="css" name="style.css" />
+<h:outputStylesheet library="css" name="flexslider.css" /> 
+<h:outputStylesheet library="css" name="bootstrap.css" />
+<h:outputStylesheet library="css" name="chocolat.css" />
+
+	<title>Login</title>
+		<meta charset="utf-8"/>
+		<h:outputStylesheet library="css" name="style3.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	
+		<h:link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,300,600,700' rel='stylesheet' type='text/css'/>
+	
+</h:head>
+<h:outputScript library="js" name="admin.js" /> 
+<h:outputScript library="js" name="jquery-1.11.1.min.js" /> 
+<h:outputScript library="js" name="move-top.js" /> 
+<h:outputScript library="js" name="easing.js" /> 
+<h:outputScript library="js" name="simpleCart.min.js" /> 
+<h:outputScript library="js" name="bootstrap.js" /> 
+<h:outputScript library="js" name="jquery.flexslider.js" /> 
+<h:outputScript library="js" name="jquery.chocolat.js" /> 
+<h:body>
+	
+
+
+
+   <div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+ 
+            <div class="account-wall">
+                <img class="profile-img" src="images/girisyap.png" width="250" height="250"
+                    alt=""/>
+                <h:form class="form-signin">
+              
+                <p:inputText class="form-control" value="#{adminLogin.a.e_mail}"  required="true" label="Keyword" placeholder="E Mail" /> 
+              
+                    
+                <p:password class="form-control" value="#{adminLogin.a.parola}" required="true" label="Keyword" placeholder="Şifre" />
+                <br></br>  
+                
+             <h:selectBooleanCheckbox ></h:selectBooleanCheckbox>Beni Hatırla
+               <h:commandButton class="btn btn-lg btn-primary btn-block" action="#{adminLogin.admin}" value="Giriş Yap"></h:commandButton> 
+         
+                </h:form>
+            </div>
+          </div>
+    </div>
+</div>
+</h:body>
+</html>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    xmlns:p="http://primefaces.org/ui"  >
+
+  <h:head>
+
+
+  
+<script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    }
+</script>
+  
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ 
+		<script type="text/javascript">
+		jQuery(document).ready(function($) {
+				$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+			});
+		});	$(".scroll").click(function(event){		
+				event.preventDefault();
+		
+	</script>
+					
+  
+  </h:head>
+  
+
+<h:body>
+
+  <div id="header">
+			<ui:insert name="header" >
+				<ui:include src="/commonHeader.xhtml" />
+			</ui:insert>
+	    </div>
+			<div class="content">
+			<div class="menu-section">
+					<div class="container">
+						<h3 style="font-size:50px;font-weight: bold" > Ayarlarım</h3>
+			<h:form>	
+			
+	
+	
+
+					
+
+      <h:commandButton action="#{f1.KayitCek}"  disabled="#{not f1.deger}"  styleClass="btn btn-warning" 
+      value="Bilgilerinizi Değiştirmek İçin Tıklayınız " >
+
+ <f:setPropertyActionListener value="#{false}" target="#{f1.deger}" />
+</h:commandButton>
+
+            <p:dataTable id="tbl" value="#{f1.list1}" var="car" 
+			 style="margin-bottom:20px">
+           <p:column>
+									<f:facet name="header">
+										<h:outputText value="Adınız" />
+									</f:facet>
+ 									
+									<h:outputText value="#{car.musteri_adi}" 
+ 										 /> 
+								</p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Soyadınız" />
+									</f:facet>
+									
+
+									<h:outputText value="#{car.musteri_soyadi}"
+										
+										 />
+								 </p:column>
+								 <p:column style="width:20%">
+									<f:facet name="header">
+										<h:outputText value="Adresiniz" />
+									</f:facet>
+									<h:inputText value="#{car.adres}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.adres}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column style="width:11%">
+									<f:facet name="header">
+										<h:outputText value="Telefon Numaranız" />
+									</f:facet>
+									<h:inputText value="#{car.telefon}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.telefon}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column style="width:20%">
+								<f:facet name="header">
+										<h:outputText value="E mail Adresiniz" />
+									</f:facet>
+									<h:inputText value="#{car.email}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.email}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 <p:column style="width:8%">
+								<f:facet name="header">
+										<h:outputText value="Şifreniz" />
+									</f:facet>
+									<h:inputText value="#{car.sifre}"
+										rendered="#{car.guncellenebilirlik}" />
+									<h:outputText value="#{car.sifre}"
+										rendered="#{not car.guncellenebilirlik}" />
+								</p:column>
+								 
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Bilgileri Düzenle" />
+									</f:facet>
+									<h:commandButton value="Güncelle" class="btn btn-warning"
+										action="#{f1.guncellenebilirligiDegistir(car)}"
+										rendered="#{not car.guncellenebilirlik}" 
+										style="width:120px;height:40px"> 
+									</h:commandButton> 
+									
+								 									
+								</p:column>
+        </p:dataTable>
+        <h:form>
+            <h:commandButton value="Değişiklikleri Kaydetmek İçin Tıklayınız" class="btn btn-warning"
+             action="#{f1.DegisikKaydet}"/>
+             
+        </h:form>
+	<br></br>
+	<br></br>
+            
+           
+            <p:dataTable id="tbl1" value="#{f2.urunlerList}" var="car" 
+			 style="margin-bottom:20px">
+						<f:facet name="header">
+      						  Daha Önceki Siparişleriniz
+    					</f:facet>
+
+						<p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Adı" />
+									</f:facet>
+ 									
+									<h:outputText value="#{car.urun_adlari}" /> 
+ 										 
+								</p:column>
+								 <p:column>
+									<f:facet name="header">
+										<h:outputText value="Ürün Fiyatı" />
+									</f:facet>
+									
+
+									<h:outputText value="#{car.tfiyat} TL"/>
+										
+										 
+								 </p:column>
+								 
+									<p:column>
+								<f:facet name="header">
+										<h:outputText value="Sipariş Verilen Tarih" />
+									</f:facet>
+									
+
+									<h:outputText value="#{car.tarih}"/>
+										
+										 
+								 </p:column>					
+								
+        </p:dataTable>
+            
+            
+        
+</h:form>					
+					
+					
+					
+					
+					
+	
+									
+	</div>
+	</div>
+			
+</div>
+
+
+		<div id="footer">
+	    	<ui:insert name="footer" >
+	    		<ui:include src="/commonFooter.xhtml" />
+	    	</ui:insert>
+    	</div>
+
+</h:body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
